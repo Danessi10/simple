@@ -1,0 +1,59 @@
+*,
+::before,
+::after {
+    transition-duration: .3s;
+    box-sizing: border-box;
+}
+
+span {
+    display: block;
+}
+
+body {
+    font: 400 18px $default-family;
+    overflow-x: hidden;
+    height: 100vh;
+    min-height: 100vh;
+    padding-top: 80px;
+
+    @include tablet {
+        padding-top: 104px;
+    }
+
+    @include mini {
+        padding-top: 97px;
+    }
+}
+
+.container {
+    max-width: 1145px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.button {
+    @include button;
+
+    @include hover {
+        color: $white;
+        background-color: $violet;
+    }
+}

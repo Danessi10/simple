@@ -1,0 +1,162 @@
+.review {
+    background-color: $classic;
+
+    &__inner {
+        padding: 110px 0 $space * 3;
+
+        @include tablet {
+            padding: 80px 0 $space * 2;
+        }
+    }
+
+    &__versions {
+        margin-bottom: $space * 3;
+
+        @include mobile {
+            margin-bottom: 40px;
+        }
+
+        &-list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: $space;
+            line-height: 1.5;
+
+            @include mini {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        &-item {
+            @include flex-row;
+
+            position: relative;
+            max-width: 350px;
+            gap: 30px;
+
+            @include mini {
+                max-width: unset;
+                justify-content: center;
+                flex-wrap: unset;
+            }
+
+            &::before {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                top: -20px;
+                left: 0;
+                background-color: $grizzly;
+            }
+        }
+
+        &-image {
+            max-width: 100%;
+
+            @include mini {
+                max-width: 130px;
+            }
+        }
+
+        &-description {
+            @include flex-column;
+            max-width: 160px;
+        }
+
+        &-number {
+            font-weight: 500;
+            line-height: 150%;
+            color: $medium;
+
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+
+        &-result {
+            line-height: 150%;
+            color: #85859b;
+
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+    }
+
+    &__paper {
+        &-description {
+            @include flex-row;
+
+            justify-content: space-between;
+            gap: $space;
+
+            @include tablet {
+                justify-content: unset;
+            }
+
+            @include mobile {
+                gap: 20px;
+            }
+        }
+
+        &-info {
+            max-width: 350px;
+
+            @include mobile {
+                max-width: unset;
+            }
+        }
+
+        &-image {
+            @include desktop {
+                max-width: 58%;
+            }
+
+            @include tablet {
+                max-width: 330px;
+                align-self: start;
+            }
+
+            @include mini {
+                max-width: 290px;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 40px;
+        line-height: 1;
+        color: $medium;
+        margin-bottom: 20px;
+
+        @include tablet {
+            font-size: 30px;
+        }
+
+        @include mobile {
+            font-size: 24px;
+            margin-bottom: 14px;
+        }
+    }
+
+    &__paragraph {
+        line-height: 1.7;
+        color: $clear;
+
+        &:not(:last-child) {
+            margin-bottom: 30px;
+            
+            @include mobile {
+                margin-bottom: 10px;
+            }
+        }
+
+        @include mobile {
+            font-size: 16px;
+        }
+    }
+}

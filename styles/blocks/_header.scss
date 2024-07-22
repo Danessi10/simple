@@ -1,0 +1,343 @@
+.header {
+    height: 100%;
+
+    @include mini {
+        &__burger-button {
+            display: block;
+            margin-right: auto;
+        }
+    }
+
+    &__inner {
+        @include flex-column;
+        height: 100%;
+    }
+
+    &__top {
+        background-color: $white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 99;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: $fresh;
+        }
+
+        @include tablet {
+            &::before {
+                content: '';
+                position: absolute;
+                top: 44px;
+                left: 0;
+                display: block;
+                width: 100vw;
+                height: 1px;
+                background-color: $fresh;
+            }
+        }
+
+        &-inner {
+            @include flex-row;
+
+            @include mini {
+                justify-content: center;
+            }
+
+            justify-content: space-between;
+
+            & a,
+            & button {
+                box-sizing: content-box;
+                padding: 28px 0;
+
+                @include tablet {
+                    padding: 10px 0;
+                }
+            }
+        }
+
+        &-buttons {
+            @include flex-row;
+
+            gap: $space;
+
+            & button {
+                @include ratio(24);
+
+                @include mini {
+                    padding: 15px 0;
+                }
+
+                @include hover {
+                    & svg * {
+                        stroke: $violet;
+                    }
+                }
+            }
+
+            @include mini {
+                width: 100%;
+                justify-content: end;
+            }
+        }
+    }
+
+    &__logo {
+        margin-right: auto;
+
+        & img {
+            display: block;
+        }
+
+        @include desktop {
+            margin-right: 0;
+        }
+    }
+
+    &__nav {
+        @include tablet {
+            flex: 1 1 100%;
+            order: 3;
+        }
+
+        @include mini {
+            display: none;
+        }
+
+        &-list {
+            @include flex-row;
+
+            transition-duration: 0ms;
+            gap: $space * 2;
+            margin-right: $space * 2;
+
+            @include desktop {
+                margin-right: 0;
+            }
+
+            @include tablet {
+                min-height: 60px;
+                justify-content: space-between;
+                gap: 0;
+            }
+
+            & a {
+                font-size: 20px;
+                color: $gray;
+
+                @include hover {
+                    color: $violet;
+                }
+
+                @include desktop {
+                    font-size: 18px;
+                }
+
+                @include tablet {
+                    padding: 20px 0;
+                }
+            }
+        }
+    }
+
+    &__search-box {
+        @include flex-row;
+
+        position: relative;
+        gap: 10px;
+    }
+
+    &__input {
+        box-sizing: border-box;
+        font-size: 20px;
+        color: $gray;
+
+        @include desktop {
+            max-width: 220px;
+            font-size: 18px;
+        }
+
+        @include mini {
+            max-width: 140px;
+        }
+    }
+
+    &__input,
+    &__input:focus {
+        border-bottom: 1px solid $gray;
+        padding: 0 5px;
+    }
+
+    &__cross-button {
+        position: relative;
+
+        @include hover {
+
+            &::before,
+            &::after {
+                background-color: $violet;
+            }
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            display: block;
+            width: 20px;
+            height: 1px;
+            background-color: #000;
+        }
+
+        &::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+
+    &__body {
+        flex: 1 1 auto;
+
+        &-inner {
+            @include flex-row;
+
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+
+            @include mini {
+                justify-content: center;
+            }
+        }
+
+        &-content {
+            @include flex-column;
+
+            gap: 30px;
+            max-width: 445px;
+
+            @include tablet {
+                max-width: 370px;
+            }
+
+            @include mobile {
+                max-width: 286px;
+                row-gap: 20px;
+            }
+
+            @include mini {
+                max-width: 290px;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 60px;
+        line-height: 100%;
+        color: $gray;
+
+        @include tablet {
+            font-size: 50px;
+        }
+
+        @include mobile {
+            font-size: 38px;
+        }
+
+        @include mini {}
+    }
+
+    &__description {
+        line-height: 150%;
+        color: $clear;
+
+        @include mobile {
+            font-size: 16px;
+        }
+
+        @include mini {
+            font-size: 14px;
+        }
+    }
+
+    &__button {
+        max-width: 255px;
+        height: 70px;
+
+        @include mobile {
+            max-width: 196px;
+            max-height: 60px;
+        }
+
+        @include mini {
+            font-size: 18px;
+            max-width: 144px;
+            max-height: 50px;
+        }
+    }
+
+    &__image {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        z-index: -1;
+
+        @include desktop {
+            max-width: 460px;
+        }
+
+        @include tablet {
+            max-width: 270px;
+        }
+
+        @include mobile {
+            top: 20px;
+            max-width: 195px;
+        }
+
+        @include mini {
+            display: none;
+        }
+    }
+}
+
+.burger-menu {
+    z-index: 99;
+    position: fixed;
+    top: 44px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $classic;
+    overflow: hidden;
+    padding: 15px 0;
+
+    &__inner {
+        @include flex-column;
+        row-gap: 22px;
+    }
+
+    &__close-button {
+        max-width: max-content;
+        aspect-ratio: 1;
+    }
+
+    &__nav-list {
+        @include flex-column;
+        row-gap: 50px;
+    }
+}

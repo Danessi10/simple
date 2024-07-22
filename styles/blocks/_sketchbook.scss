@@ -1,0 +1,91 @@
+.sketchbook {
+    overflow: hidden;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+
+        padding-top: 90px;
+
+        @include tablet {
+            padding-top: $space * 2;
+            align-items: center;
+        }
+
+        @include mobile {
+            flex-direction: column;
+            row-gap: 10px;
+            padding-bottom: $space * 2;
+        }
+    }
+
+    &__text {
+        max-width: 350px;
+
+        @include tablet {
+            max-width: 330px;
+        }
+
+        @include mobile {
+            order: 2;
+            max-width: unset;
+        }
+    }
+
+    &__title {
+        font-size: 40px;
+        line-height: 100%;
+        color: $medium;
+        margin-bottom: 8px;
+
+        @include tablet {
+            font-size: 30px;
+        }
+
+        @include mobile {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+    }
+
+    &__description {
+        font-weight: 400;
+        line-height: 170%;
+        color: $clear;
+        margin-bottom: $space;
+
+        @include mobile {
+            margin-bottom: $space;
+            font-size: 16px;
+        }
+    }
+
+    &__button {
+        width: 255px;
+        height: 70px;
+
+        @include mobile {
+            width: 196px;
+            height: 60px;
+        }
+
+        @include mini {
+            width: 144px;
+            height: 50px;
+        }
+    }
+
+    & picture {
+        display: flex;
+        transform: translateX(15px);
+
+        & img {
+            max-width: 100%;
+        }
+
+        @include mobile {
+            order: 1;
+            transform: unset;
+        }
+    }
+}

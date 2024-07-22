@@ -1,0 +1,15 @@
+@import
+    'reset',
+    'fonts',
+    'variables',
+    'mixins',
+    'globals';
+
+@import 
+    'blocks/header',
+    'blocks/burger-button',
+    'blocks/review',
+    'blocks/products',
+    'blocks/brands',
+    'blocks/sketchbook',
+    'blocks/footer';

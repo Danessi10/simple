@@ -1,0 +1,58 @@
+.brands {
+    background-color: $classic;
+
+    @include mobile {
+        overflow-x: auto;
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+
+        -ms-overflow-style: none;
+    }
+
+    &__inner {
+        padding: $space * 3 0;
+
+        @include tablet {
+            padding: $space * 2 0 45px;
+        }
+    }
+
+    &__list {
+        @include flex-row;
+
+        @include mobile {
+            width: max-content;
+            flex-wrap: nowrap;
+            justify-content: unset;
+            padding-right: 15px;
+        }
+
+        justify-content: center;
+        gap: $space;
+    }
+
+    &__item {
+        position: relative;
+        min-height: 135px;
+        min-width: 255px;
+        border: 1px solid $white-gray;
+
+        & img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            @include mobile {
+                max-width: 80%;
+            }
+        }
+
+        @include mobile {
+            min-width: 150px;
+            min-height: 80px;
+        }
+    }
+}
